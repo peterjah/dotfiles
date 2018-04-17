@@ -57,7 +57,7 @@
 
     # 2 logs avec visualisation des branches
     # Long
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
     # Court
     oneline = log --pretty=oneline --abbrev-commit --graph --decorate
     # Long avec fichiers modifies
