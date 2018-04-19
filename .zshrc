@@ -93,5 +93,32 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+##################
+# DOCKER ALIASES :
+##################
+
+# Get container IP
+alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+
+# Stop all containers
+alias dstop='docker stop $(docker ps -a -q)'
+
+# Remove all containers
+alias drm='docker rm $(docker ps -a -q)'
+
+# Stop and Remove all containers
+alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+
+# Remove all images
+alias dri='docker rmi $(docker images -q)'
+
+# Remove all <none> images
+alias drin='docker rmi -f $(docker images --filter "dangling=true" -q)'
+
+
+##################
+# Default CLI editor :
+##################
+
 export VISUAL=/usr/bin/nano
 export EDITOR=$VISUAL
