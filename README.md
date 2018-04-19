@@ -4,7 +4,8 @@
 
 * .zshrc 
     * docker aliases ([source](https://gist.github.com/f3l1x/4c3bb59397d976ac83f0#shortcuts))
-    * nano as default CLI editor
+    
+    * nano as default CLI editor
 
 * zsh-theme from [robbyrussell/oh-my-zsh/avit](https://github.com/robbyrussell/oh-my-zsh/wiki/themes#avit)
     
