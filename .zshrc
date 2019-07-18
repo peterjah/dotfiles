@@ -2,19 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/g-space/.oh-my-zsh
+  export ZSH=/home/pseznec/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="custom"
-
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+ZSH_THEME="afowler"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -58,9 +51,7 @@ ZSH_THEME="custom"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,9 +107,5 @@ alias dri='docker rmi $(docker images -q)'
 alias drin='docker rmi -f $(docker images --filter "dangling=true" -q)'
 
 
-##################
-# Default CLI editor :
-##################
-
-export VISUAL=/usr/bin/nano
-export EDITOR=$VISUAL
+alias gitstashpull="git stash && git pull && git stash pop"
+alias json="python -mjson.tool"
