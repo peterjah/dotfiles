@@ -109,3 +109,27 @@ alias drin='docker rmi -f $(docker images --filter "dangling=true" -q)'
 
 alias gitstashpull="git stash && git pull && git stash pop"
 alias json="python -mjson.tool"
+
+export NVM_DIR="/home/pseznec/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# place this after nvm initialization!
+
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -n $(echo $PWD | grep "${HOME}/dev") ]]; then
+    CURRENT=$(nvm current | sed -r -e 's/v?([0-9].*)/\1/g')
+    if [[ -f .nvmrc && -r .nvmrc ]]; then
+       WANTED=$(cat .nvmrc | sed -r -e 's/v?([0-9].*)/\1/g')
+       if [ "$CURRENT" != "$WANTED" ]; then
+         nvm use
+       fi
+    elif [[ $(nvm version) != $(nvm version default)  ]]; then
+      #echo "Reverting to nvm default version"
+      #nvm use default
+    fi
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
+export PATH="$(yarn global bin):$PATH"
